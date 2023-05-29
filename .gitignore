@@ -16,12 +16,14 @@ target/
 
 ## by me
 .git
+.DS_Store
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+.gitignore
 
 ### NetBeans ###
 /nbproject/private/
