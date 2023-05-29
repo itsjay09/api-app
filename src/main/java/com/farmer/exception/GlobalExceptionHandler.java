@@ -9,15 +9,19 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(UserNotFoundException.class)
-    protected ResponseEntity<ExceptionResponse> handleUserNotFoundException(UserNotFoundException ex) {
-        ExceptionResponse exceptionResponse = new ExceptionResponse(ex.getMessage(), ex.toString(), HttpStatus.NOT_FOUND.value());
-        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
-    }
+  @ExceptionHandler(UserNotFoundException.class)
+  protected ResponseEntity<ExceptionResponse> handleUserNotFoundException(
+      UserNotFoundException ex) {
+    ExceptionResponse exceptionResponse = new ExceptionResponse(ex.getMessage(), ex.toString(),
+        HttpStatus.NOT_FOUND.value());
+    return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+  }
 
-    @ExceptionHandler(ItemNotFoundException.class)
-    protected ResponseEntity<ExceptionResponse> handleItemNotFoundException(ItemNotFoundException ex){
-        ExceptionResponse exceptionResponse = new ExceptionResponse(ex.getMessage(), ex.toString(), HttpStatus.NOT_FOUND.value());
-        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
-    }
+  @ExceptionHandler(ItemNotFoundException.class)
+  protected ResponseEntity<ExceptionResponse> handleItemNotFoundException(
+      ItemNotFoundException ex) {
+    ExceptionResponse exceptionResponse = new ExceptionResponse(ex.getMessage(), ex.toString(),
+        HttpStatus.NOT_FOUND.value());
+    return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+  }
 }
