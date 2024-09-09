@@ -1,7 +1,7 @@
 package com.farmer.controller;
 
-import com.farmer.model.User;
-import com.farmer.service.UserService;
+import com.farmer.model.FarmerInfo;
+import com.farmer.service.FarmerService;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,31 +20,30 @@ public class UserController {
 
   Logger logger = LoggerFactory.getLogger(UserController.class);
 
-  private UserService userService;
+  private FarmerService farmerService;
 
-  public UserController(UserService userService) {
-    this.userService = userService;
+  public UserController(FarmerService farmerService) {
+    this.farmerService = farmerService;
   }
 
   @GetMapping("get/{id}")
-  public ResponseEntity<User> getUser(@PathVariable("id") long id) {
-    logger.info(String.format("method getUser start with id: %s", id));
-    User user = userService.getUser(id);
+  public ResponseEntity<FarmerInfo> getUser(@PathVariable("id") long id) {
+    logger.info(String.format("Get Farmer Info for id: %s", id));
+    FarmerInfo user = farmerService.getFarmerInfo(id);
     return new ResponseEntity<>(user, HttpStatus.OK);
   }
 
   @GetMapping("/getAll")
-  public ResponseEntity<List<User>> getAllUser() {
-    logger.info("start method getAllUser()");
-    List<User> users = userService.getAllUser();
+  public ResponseEntity<List<FarmerInfo>> getAllUser() {
+    logger.info("Get All Farmer Info");
+    List<FarmerInfo> users = farmerService.getAllFarmerInfo();
     return new ResponseEntity<>(users, HttpStatus.OK);
   }
 
   @PostMapping("/add")
-  public ResponseEntity<User> saveUser(@RequestBody User user) {
-    logger.info("start method saveUser()");
-    logger.info(user.toString());
-    User savedItem = userService.saveUser(user);
+  public ResponseEntity<FarmerInfo> saveUser(@RequestBody FarmerInfo user) {
+    logger.info("Save Farmer Info RequestBody : [ %s ]", user.toString());
+    FarmerInfo savedItem = farmerService.saveFarmerInfo(user);
     return new ResponseEntity<>(savedItem, HttpStatus.CREATED);
   }
 }

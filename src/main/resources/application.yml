@@ -1,9 +1,17 @@
 spring:
+  security:
+    basic:
+      enabled: true
+    user:
+      name: farmer-admin
+      password: Run100
+
   jpa:
     hibernate:
       ddl-auto: none
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
   datasource:
-    url: "jdbc:postgresql://localhost:5432/farmer_db"
-    username: test_user
-    password: testuser@123
+    url: "jdbc:postgresql://host.docker.internal:5432/farmer_db"
+    username: farmer_db_user
+    password: farmerdbu@1

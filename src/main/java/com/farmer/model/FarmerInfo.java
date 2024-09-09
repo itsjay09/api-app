@@ -17,8 +17,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name = "user1")
-public class User implements Serializable {
+@Table(name = "farmer_info")
+public class FarmerInfo implements Serializable {
 
   @Id
   @Column(name = "id")
@@ -32,4 +32,6 @@ public class User implements Serializable {
 
   @Column(name = "email")
   private String email;
+
+
 }

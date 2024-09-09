@@ -25,8 +25,8 @@ public class Item implements Serializable {
   @Column(name = "id")
   private long id;
 
-  @Column(name = "user_id")
-  private long userId;
+  @Column(name = "framer_id")
+  private long farmerId;
 
   @Column(name = "name")
   private String name;

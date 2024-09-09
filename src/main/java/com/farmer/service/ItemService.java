@@ -1,6 +1,6 @@
 package com.farmer.service;
 
-import com.farmer.exception.ItemNotFoundException;
+import com.farmer.exception.type.ItemNotFoundException;
 import com.farmer.model.Item;
 import com.farmer.repository.ItemRepository;
 import java.util.List;

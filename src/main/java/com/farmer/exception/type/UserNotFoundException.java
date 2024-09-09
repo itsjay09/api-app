@@ -1,4 +1,4 @@
-package com.farmer.exception;
+package com.farmer.exception.type;
 
 public class UserNotFoundException extends RuntimeException {
 
